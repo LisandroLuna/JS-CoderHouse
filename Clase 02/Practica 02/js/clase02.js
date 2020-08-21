@@ -1,8 +1,5 @@
-var nombre = ""
-nombre = prompt('Ingrese su nombre: ')
+reserva = parseInt(prompt('Ingrese su numero de reserva: '))
 
-if (nombre != ''){
-    console.log('Bienvenido ' + nombre)
-} else {
-    console.warn('Debe ingresar un nombre!')
+if ((reserva > 10) && (reserva < 50)){
+    alert('Su reserva esta disponible.')
 }
