@@ -10,15 +10,20 @@ function calc(){
                     '\n3- Sitio + Ecommerce' +
                     '\n4- Sitio + Blog + Ecommerce'
             ))
-    var price = [calcSect(sect),3000, 3000, 3000, 3000]
-    var total = 0
-    for(var i = 0; i<=opt; i++){
-        total = total + price[i]
-    }
+    total = calcTotal(sect, opt)
     alert("Costo total de su sitio web: $" + total)
 }
 
 function calcSect(sect){
     var sectPrice = 500
     return sectPrice*sect
+}
+
+function calcTotal(sect, opt){
+    var price = [calcSect(sect),3000, 3000, 3000, 3000]
+    var total = 0
+    for(var i = 0; i<=opt; i++){
+        total = total + price[i]
+    }
+    return total
 }
