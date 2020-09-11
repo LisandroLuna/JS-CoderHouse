@@ -5,6 +5,7 @@
     <title>Monkey Dev - Desarrollamos tus ideas!</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet"  href="css/main.css">
     <script defer src="js/scripts.js"></script>
     <script defer src="https://kit.fontawesome.com/6014fdca0b.js" crossorigin="anonymous"></script>
@@ -13,19 +14,53 @@
 <body>
 <header>
     <h1 class="web-title"><a class="header-link" href="index.html">Monkey Dev</a></h1>
+    <p class="text-center">Desarrollo Web</p>
     <nav>
-        <a class="btn-nav" href="index.html">Inicio</a>
+        <a class="btn-nav" href="index.html">Cotizador</a>
     </nav>
 </header>
 <main>
-    <article class="home-desc">
+    <div class="container-fluid">
         <h2 class="sect-title">Cotiza el diseño de tu web:</h2>
+        <p>Desarrollamos tu sitio web con las mejores caracteristicas, a continuacion nuestros precios de referencia y mas abajo se encuentra nuestro simulador de presupuesto Web.</p>
+        <table class="table table-light">
+            <thead>
+            <tr>
+                <th scope="col">Caracteristica</th>
+                <th scope="col">Precio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Precio base</td>
+                <td>$1500</td>
+            </tr>
+            <tr>
+                <td>Seccion x Unid.</td>
+                <td>$500</td>
+            </tr>
+            <tr>
+                <td>Blog</td>
+                <td>$3000</td>
+            </tr>
+            <tr>
+                <td>Tienda</td>
+                <td>$3000</td>
+            </tr>
+            </tbody>
+        </table>
+        <h3>Simulador de presupuesto</h3>
+        <ol>
+            <li>Elija la cantidad de secciones, minimo 1 y no hay maximo.</li>
+            <li>Seleccionar el modelo de sitio web.</li>
+            <li>Reciba su presupuesto.</li>
+        </ol>
         <p>Complete los campos solicitados luego de presionar ejecutar:</p>
-        <button onclick="calc()">Ejecutar</button>
-    </article>
+        <button class="btn btn-primary" onclick="calc()">Ejecutar</button>
+    </div>
 </main>
 <footer>
-    <p>Copyright © 2020 - Lisandro Luna</p>
+    <p>Copyright © 2020 - <a  target="_BLANK" href="https://github.com/LisandroLuna/JS-CoderHouse/tree/master/Proyecto">Lisandro Luna</a></p>
     <a href="#"><i class="fab fa-facebook-square"></i></a>  <a href="#"><i class="fab fa-twitter-square"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
 </footer>
 </body>

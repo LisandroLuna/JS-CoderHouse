@@ -1,73 +1,303 @@
-body{
-    background: #d2d2d2;
-    font-family: 'Lato';
-}
-header{
-    background: #ffe604;
-    padding: 1rem 1rem 1rem 1rem;
-    margin: -1rem -1rem -1rem -1rem;
-}
-main{
-    margin: 2rem;
-    display: flex;
-}
-footer{
-    text-align: center;
-    background: #ffe604;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    margin: -1rem -1rem -1rem -1rem;
-}
-nav{
-    margin: 0rem 0rem 0rem 0rem;
-}
-i{
-    color: black;
-    font-size: 1.5rem;
-}
-a{
-    text-decoration: none;
-}
-article{
-    margin: 1rem 1rem 1rem 1rem;
-}
-.header-link{
-    color: black;
-}
-.btn-nav{
-    color: #5f5f5f;
-    padding: 0.6rem 0.6rem 0.6rem 0.6rem;
-    margin: -0.1rem -0.1rem -0.1rem -0.1rem;
-    font-size: 1.2rem;
-}
-.btn-nav:hover{
-    color: black;
-}
-.web-title{
-    text-align: center;
-}
-.sect-title{
+@media (min-width: 576px) {
 
-}
-.sect-subtitle{
+    body{
+        font-family: 'Lato';
+    }
+    header{
+        background: #ffe604;
+        padding: 1rem 1rem 1rem 1rem;
+        margin: -1rem -1rem -1rem -1rem;
+    }
+    main{
+        margin: 2rem;
+        display: flex;
+    }
+    footer{
+        text-align: center;
+        background: #ffe604;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: -1rem -1rem -1rem -1rem;
+    }
+    nav{
+        margin: 0rem 0rem 0rem 0rem;
+    }
+    i{
+        color: black;
+        font-size: 1.5rem;
+    }
+    a{
+        text-decoration: none;
+    }
+    h1 a{
+        text-decoration: none;
+    }
+    article{
+        margin: 1rem 1rem 1rem 1rem;
+    }
+    .header-link{
+        color: black;
+    }
+    .btn-nav{
+        color: #5f5f5f;
+        padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+        margin: -0.1rem -0.1rem -0.1rem 1rem;
+        font-size: 1.2rem;
+    }
+    .btn-nav:hover{
+        color: black;
+    }
+    .web-title{
+        text-align: center;
+    }
+    .sect-title{
 
+    }
+    .sect-subtitle{
+
+    }
+    .home-desc{
+        width: 30%;
+        text-align: justify;
+    }
+    .form-cont{
+        padding: 1rem 1rem 1rem 1rem;
+    }
+    .form-cont *{
+        padding: 1rem 1rem 1rem 1rem;
+        margin: 1rem 2rem 01rem 0.5rem;
+    }
+    .form-cont label{
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 1rem 1rem 0rem 0rem;
+    }
+
+    .form-cont input{
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: 1rem 0rem 0rem 0rem;
+    }
 }
-.home-desc{
-    width: 30%;
-    text-align: justify;
+@media (min-width: 768px) {
+
+    body{
+        font-family: 'Lato';
+    }
+    header{
+        background: #ffe604;
+        padding: 1rem 1rem 1rem 1rem;
+        margin: -1rem -1rem -1rem -1rem;
+    }
+    main{
+        margin: 2rem;
+        display: flex;
+    }
+    footer{
+        text-align: center;
+        background: #ffe604;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: -1rem -1rem -1rem -1rem;
+    }
+    nav{
+        margin: 0rem 0rem 0rem 0rem;
+    }
+    i{
+        color: black;
+        font-size: 1.5rem;
+    }
+    a{
+        text-decoration: none;
+    }
+    article{
+        margin: 1rem 1rem 1rem 1rem;
+    }
+    .header-link{
+        color: black;
+    }
+    .btn-nav{
+        color: #5f5f5f;
+        padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+        margin: -0.1rem -0.1rem -0.1rem 1rem;
+        font-size: 1.2rem;
+    }
+    .btn-nav:hover{
+        color: black;
+    }
+    .web-title{
+        text-align: center;
+    }
+    .sect-title{
+
+    }
+    .sect-subtitle{
+
+    }
+    .home-desc{
+        width: 30%;
+        text-align: justify;
+    }
+    .form-cont{
+        padding: 1rem 1rem 1rem 1rem;
+    }
+    .form-cont *{
+        padding: 1rem 1rem 1rem 1rem;
+        margin: 1rem 2rem 01rem 0.5rem;
+    }
+    .form-cont label{
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 1rem 1rem 0rem 0rem;
+    }
+
+    .form-cont input{
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: 1rem 0rem 0rem 0rem;
+    }
 }
-.form-cont{
-    padding: 1rem 1rem 1rem 1rem;
+@media (min-width: 992px) {
+    body{
+        font-family: 'Lato';
+    }
+    header{
+        background: #ffe604;
+        padding: 1rem 1rem 1rem 1rem;
+        margin: -1rem -1rem -1rem -1rem;
+    }
+    main{
+        margin: 2rem;
+        display: flex;
+    }
+    footer{
+        text-align: center;
+        background: #ffe604;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: -1rem -1rem -1rem -1rem;
+    }
+    nav{
+        margin: 0rem 0rem 0rem 0rem;
+    }
+    i{
+        color: black;
+        font-size: 1.5rem;
+    }
+    a{
+        text-decoration: none;
+    }
+    article{
+        margin: 1rem 1rem 1rem 1rem;
+    }
+    .header-link{
+        color: black;
+    }
+    .btn-nav{
+        color: #5f5f5f;
+        padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+        margin: -0.1rem -0.1rem -0.1rem 1rem;
+        font-size: 1.2rem;
+    }
+    .btn-nav:hover{
+        color: black;
+    }
+    .web-title{
+        text-align: center;
+    }
+    .sect-title{
+
+    }
+    .sect-subtitle{
+
+    }
+    .home-desc{
+        width: 30%;
+        text-align: justify;
+    }
+    .form-cont{
+        padding: 1rem 1rem 1rem 1rem;
+    }
+    .form-cont *{
+        padding: 1rem 1rem 1rem 1rem;
+        margin: 1rem 2rem 01rem 0.5rem;
+    }
+    .form-cont label{
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 1rem 1rem 0rem 0rem;
+    }
+
+    .form-cont input{
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: 1rem 0rem 0rem 0rem;
+    }
 }
-.form-cont *{
-    padding: 1rem 1rem 1rem 1rem;
-    margin: 1rem 2rem 01rem 0.5rem;
-}
-.form-cont label{
-    padding: 0rem 0rem 0rem 0rem;
-    margin: 1rem 1rem 0rem 0rem;
+@media (min-width: 1200px) {
+
+    body{
+        font-family: 'Lato';
+    }
+    header{
+        background: #ffe604;
+        padding: 1rem 1rem 1rem 1rem;
+        margin: -1rem -1rem -1rem -1rem;
+    }
+    main{
+        margin: 2rem;
+        display: flex;
+    }
+    footer{
+        text-align: center;
+        background: #ffe604;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: -1rem -1rem -1rem -1rem;
+    }
+    nav{
+        margin: 0rem 0rem 0rem 0rem;
+    }
+    i{
+        color: black;
+        font-size: 1.5rem;
+    }
+    a{
+        text-decoration: none;
+    }
+    article{
+        margin: 1rem 1rem 1rem 1rem;
+    }
+    .header-link{
+        color: black;
+    }
+    .btn-nav{
+        color: #5f5f5f;
+        padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+        margin: -0.1rem -0.1rem -0.1rem 1rem;
+        font-size: 1.2rem;
+    }
+    .btn-nav:hover{
+        color: black;
+    }
+    .web-title{
+        text-align: center;
+    }
+    .sect-title{
+
+    }
+    .sect-subtitle{
+
+    }
+    .home-desc{
+        width: 30%;
+        text-align: justify;
+    }
+    .form-cont{
+        padding: 1rem 1rem 1rem 1rem;
+    }
+    .form-cont *{
+        padding: 1rem 1rem 1rem 1rem;
+        margin: 1rem 2rem 01rem 0.5rem;
+    }
+    .form-cont label{
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 1rem 1rem 0rem 0rem;
+    }
+
+    .form-cont input{
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: 1rem 0rem 0rem 0rem;
+    }
 }
 
-.form-cont input{
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    margin: 1rem 0rem 0rem 0rem;
-}

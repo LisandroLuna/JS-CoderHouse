@@ -1,12 +1,14 @@
+//COnfiguro precios constantes
 const basePrice = 1500;
 const sectPrice = 500;
 const blogPrice = 3000;
 const ecomPrice = 3000;
 
-function Web(sect, blog, ecom) {
-    this.sect = sect;
-    this.blog = blog;
-    this.ecom = ecom;
+//creo el objeto web
+function Web(data) {
+    this.sect = data[0];
+    this.blog = data[1];
+    this.ecom = data[2];
     this.price = function (){
         let price = basePrice;
         if(this.calcSect()>0) {
@@ -26,19 +28,23 @@ function Web(sect, blog, ecom) {
 }
 
 function calc(){
-    let sect = 0;
-    let blog, ecom, stop = false;
+    // Aplique el array en esta parte con el valor data
+    // data[0] = Nro de secciones
+    // data[1] = true lleva blog / false no lleva blog
+    // data[2] = true lleva tienda / false no lleva tienda
+    data = [0, false, false]
+    let stop = false;
     while(stop === false) {
-        sect = parseInt(prompt(
+        data[0] = parseInt(prompt(
             'Ingrese el numero de secciones para su sitio excluyendo blog y tienda si las requiere:\n' +
             'Ej.: si su sitio tiene una pagina de inicio, seccion galeria y seccion de contacto serian 3 secciones.'
         ));
-        if(sect<1 || !Number.isInteger(sect)){
+        if(data[0] <1 || !Number.isInteger(data[0])){
             alert('Ingrese un numero mayor a 1!');
             console.log('Error en seleccion de numero de secciones.');
             continue;
         }
-        console.log('Secciones: ' + sect);
+        console.log('Secciones: ' + data[0]);
         let opt = parseInt(prompt(
             'Ingrese la opcion que desea:' +
             '\n1- Sitio Simple' +
@@ -51,20 +57,20 @@ function calc(){
                 stop = true;
                 break;
             case 2:
-                blog = true;
+                data[1] = true;
                 stop = true;
-                console.log('Modelo: ' + sect + ' + Blog');
+                console.log('Modelo: ' + data[0] + ' + Blog');
                 break;
             case 3:
-                ecom = true;
+                data[2] = true;
                 stop = true;
-                console.log('Modelo: ' + sect + ' + Tienda');
+                console.log('Modelo: ' + data[0] + ' + Tienda');
                 break;
             case 4:
-                blog = true;
-                ecom = true;
+                data[1] = true;
+                data[2] = true;
                 stop = true;
-                console.log('Modelo: ' + sect + ' + Blog + Tienda');
+                console.log('Modelo: ' + data[0] + ' + Blog + Tienda');
                 break;
             default:
                 alert('Ingrese una opcion valida!');
@@ -72,7 +78,7 @@ function calc(){
 
         }
     }
-    const webCalc = new Web(sect, blog, ecom);
+    const webCalc = new Web(data);
     console.log(webCalc);
     alert("Costo total de su sitio web: $" + webCalc.price());
     console.log("Costo total: $" + webCalc.price())
