@@ -56,17 +56,20 @@ function calc(){
 
     // Muestro el precio final en el HTML
     if((typeof webCalc.price()) == 'number' ) {
-        price = document.querySelector('#price')
+        let price = document.querySelector('#price');
         if(webCalc.blog ===true){
-            document.querySelector('#choiceb').textContent = 'Si'
-            document.querySelector('#priceb').textContent = '$3000'
+            document.querySelector('#choiceb').textContent = 'Si';
+            document.querySelector('#priceb').textContent = '$3000';
         }
         if(webCalc.ecom ===true){
-            document.querySelector('#choicee').textContent = 'Si'
-            document.querySelector('#pricee').textContent = '$3000'
+            document.querySelector('#choicee').textContent = 'Si';
+            document.querySelector('#pricee').textContent = '$3000';
         }
-        price.textContent = '$' + webCalc.price()
-        console.log('Costo total: $' + webCalc.price())
+        document.querySelector('#unitsect').textContent = webCalc.sect;
+        finalSec = webCalc.calcSect();
+        document.querySelector('#prices').textContent = '$' + finalSec;
+        price.textContent = '$' + webCalc.price();
+        console.log('Costo total: $' + webCalc.price());
     }else{
         alert('Error al obtener presupuesto.');
         console.warn('Error al obtener presupuesto.')
