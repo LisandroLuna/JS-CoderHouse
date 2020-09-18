@@ -28,66 +28,36 @@ function Web(data) {
 }
 
 function calc(){
-    // Aplique el array en esta parte con el valor data
     // data[0] = Nro de secciones
     // data[1] = true lleva blog / false no lleva blog
     // data[2] = true lleva tienda / false no lleva tienda
-    let data = [0, false, false];
-    let stop = false;
-    while(!stop) {
-        data[0] = parseInt(prompt(
-            'Ingrese el numero de secciones para su sitio excluyendo blog y tienda si las requiere:\n' +
-            'Ej.: si su sitio tiene una pagina de inicio, seccion galeria y seccion de contacto serian 3 secciones.'
-        ));
-        if(data[0] <1 || !Number.isInteger(data[0])){
-            alert('Ingrese un numero mayor a 1!');
-            console.warn('Error en seleccion de numero de secciones.');
-            continue;
-        }
-        console.log('Secciones: ' + data[0]);
-        let stop2 = false;
-        while (!stop2){
-            let opt = parseInt(prompt(
-                'Ingrese la opcion que desea:' +
-                '\n1- Sitio Simple' +
-                '\n2- Sitio + Blog' +
-                '\n3- Sitio + Ecommerce' +
-                '\n4- Sitio + Blog + Ecommerce'
-            ));
-            switch (opt) {
-                case 1:
-                    stop = true;
-                    stop2 = true;
-                    break;
-                case 2:
-                    data[1] = true;
-                    stop = true;
-                    stop2 = true;
-                    console.log('Modelo: ' + data[0] + ' + Blog');
-                    break;
-                case 3:
-                    data[2] = true;
-                    stop = true;
-                    stop2 = true;
-                    console.log('Modelo: ' + data[0] + ' + Tienda');
-                    break;
-                case 4:
-                    data[1] = true;
-                    data[2] = true;
-                    stop = true;
-                    stop2 = true;
-                    console.log('Modelo: ' + data[0] + ' + Blog + Tienda');
-                    break;
-                default:
-                    alert('Ingrese una opcion valida!');
-                    console.warn('Error de seleccion de modelo de sitio.');
-            }
-        }
+    let data = [];
+
+    // Tomo valores del formulario
+    data[0] = document.querySelector('#sections').value;
+    data[1] = document.querySelector('#blog').checked;
+    data[2] = document.querySelector('#ecom').checked;
+
+    // Si no ingresan booleanos
+    if(typeof data[1] !== "boolean"){
+        alert('Error al seleccionar Blog, intente nuevamente!');
+        document.querySelector('#blog').setAttribute('value','false')
+        console.warn('Error al seleccionar Blog, no ingreso booleano');
     }
+    if(typeof data[2] !== "boolean"){
+        alert('Error al seleccionar Tienda, intente nuevamente!');
+        document.querySelector('#ecom').setAttribute('value','false')
+        console.warn('Error al seleccionar Tienda, no ingreso booleano');
+    }
+
+    // Creo el objeto para realizar el calculo
     const webCalc = new Web(data);
     console.log(webCalc);
+
+    // Muestro el precio final en el HTML
     if((typeof webCalc.price()) == 'number' ) {
-        alert('Costo total de su sitio web: $' + webCalc.price());
+        price = document.querySelector('#price')
+        price.textContent = webCalc.price()
         console.log('Costo total: $' + webCalc.price())
     }else{
         alert('Error al obtener presupuesto.');
