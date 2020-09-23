@@ -3,12 +3,23 @@ const basePrice = 1500;
 const sectPrice = 500;
 const blogPrice = 3000;
 const ecomPrice = 3000;
+const mantPrice = 4500;
+
+document.addEventListener('DOMContentLoaded', function(){
+    console.log('Cargo el DOM')
+    document.querySelector('#sections').addEventListener('change', calc);
+    document.querySelector('#blog').addEventListener('change', calc);
+    document.querySelector('#ecom').addEventListener('change', calc);
+    document.querySelector('#mant').addEventListener('change', calc);
+
+});
 
 // Creo el objeto web
 function Web(data) {
     this.sect = data[0];
     this.blog = data[1];
     this.ecom = data[2];
+    this.mant = data[3];
     this.price = function (){
         let price = basePrice;
         if(this.calcSect()>0) {
@@ -19,6 +30,9 @@ function Web(data) {
         }
         if(this.ecom === true){
             price += ecomPrice
+        }
+        if(this.mant === true){
+            price += mantPrice
         }
         return price
     };
@@ -37,6 +51,7 @@ function calc(){
     data[0] = document.querySelector('#sections').value;
     data[1] = document.querySelector('#blog').checked;
     data[2] = document.querySelector('#ecom').checked;
+    data[3] = document.querySelector('#mant').checked;
 
     // Si no ingresan booleanos
     if(typeof data[1] !== "boolean"){
@@ -64,6 +79,10 @@ function calc(){
         if(webCalc.ecom ===true){
             document.querySelector('#choicee').textContent = 'Si';
             document.querySelector('#pricee').textContent = '$3000';
+        }
+        if(webCalc.mant ===true){
+            document.querySelector('#choicem').textContent = 'Si';
+            document.querySelector('#pricem').textContent = '$4500';
         }
         document.querySelector('#unitsect').textContent = webCalc.sect;
         finalSec = webCalc.calcSect();

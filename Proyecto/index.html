@@ -29,20 +29,20 @@
                  <form id="form-simu">
                     <div class="form-group">
                         <label for="name"><b>Nombre:</b></label>
-                        <input type="text" class="form-control" id="name" placeholder="Jose Perez">
+                        <input type="text" class="form-control" id="name" placeholder="Jose Perez" required />
                     </div>
                     <div class="form-group">
                         <label for="tel"><b>Telefono:</b></label>
-                        <input type="tel" class="form-control" id="tel" placeholder="01154545454" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}">
+                        <input type="tel" class="form-control" id="tel" placeholder="011-5454-5454" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required />
                     </div>
                     <div class="form-group">
                         <label for="email"><b>Email:</b></label>
-                        <input type="email" class="form-control" id="email" placeholder="mail@ejemplo.com">
+                        <input type="email" class="form-control" id="email" placeholder="mail@ejemplo.com" required />
                     </div>
                     <div class="form-group mt-4">
                         <label for="sections"><b>Secciones + subsecciones:</b></label>
                         <p class="mt-2 mr-3 text-center lead"><output id="amount" name="amount" for="sections">10</output></p>
-                        <input type="range" value="10" min="1" max="100" step="1" class="form-control-range" id="sections" list="tickmarks" oninput="amount.value=sections.value">
+                        <input type="range" value="10" min="1" max="100" step="1" class="form-control-range" id="sections" list="tickmarks" oninput="amount.value=sections.value" required />
                         <datalist id="tickmarks">
                             <option value="1" label="1">
                             <option value="10" label="10">
@@ -53,57 +53,67 @@
                         </datalist>
                     </div>
                     <div class="form-check mt-4">
-                        <input class="form-check-input" type="checkbox" id="ecom">
+                        <input class="form-check-input" type="checkbox" id="ecom" />
                         <label class="form-check-label" for="ecom"><b>Tienda</b></label>
                     </div>
-                    <div class="form-check mt-4 mb-4">
-                        <input class="form-check-input" type="checkbox" id="blog">
-                        <label class="form-check-label" for="blog"><b>Blog</b></label>
-                    </div>
-                </form>
-                <table class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th scope="col">Caracteristica</th>
-                        <th scope="col">Precio Unit</th>
-                        <th scope="col">Solicita</th>
-                        <th scope="col">Precio Final</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Precio base</td>
-                        <td>$1500</td>
-                        <td>Si</td>
-                        <td>$1500</td>
-                    </tr>
-                    <tr>
-                        <td>Seccion x Unid.</td>
-                        <td>$500</td>
-                        <td id="unitsect">0</td>
-                        <td id="prices">$0</td>
-                    </tr>
-                    <tr>
-                        <td>Blog</td>
-                        <td>$3000</td>
-                        <td id="choiceb">No</td>
-                        <td id="priceb">$0</td>
-                    </tr>
-                    <tr>
-                        <td>Tienda</td>
-                        <td>$3000</td>
-                        <td id="choicee">No</td>
-                        <td id="pricee">$0</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td></td>
-                        <td></td>
-                        <td><b id="price">$-</b></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <button class="btn btn-primary mr-5" onclick="calc()">Calcular</button>
+                     <div class="form-check mt-4 mb-4">
+                         <input class="form-check-input" type="checkbox" id="blog" />
+                         <label class="form-check-label" for="blog"><b>Blog</b></label>
+                     </div>
+                     <div class="form-check mt-4 mb-4">
+                         <input class="form-check-input" type="checkbox" id="mant" />
+                         <label class="form-check-label" for="mant"><b>Mantenimiento anual</b></label>
+                     </div>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Caracteristica</th>
+                            <th scope="col">Precio Unit</th>
+                            <th scope="col">Solicita</th>
+                            <th scope="col">Precio Final</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Precio base</td>
+                            <td>$1500</td>
+                            <td>Si</td>
+                            <td>$1500</td>
+                        </tr>
+                        <tr>
+                            <td>Seccion x Unid.</td>
+                            <td>$500</td>
+                            <td id="unitsect">0</td>
+                            <td id="prices">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Blog</td>
+                            <td>$3000</td>
+                            <td id="choiceb">No</td>
+                            <td id="priceb">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Tienda</td>
+                            <td>$3000</td>
+                            <td id="choicee">No</td>
+                            <td id="pricee">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Mantenimiento anual</td>
+                            <td>$4500</td>
+                            <td id="choicem">No</td>
+                            <td id="pricem">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td></td>
+                            <td></td>
+                            <td><b id="price">$-</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary">Solicitar</button>
+                 </form>
             </div>
             <div class="col-lg-4">
                 <h2>Historial de Cotizaciones</h2>
