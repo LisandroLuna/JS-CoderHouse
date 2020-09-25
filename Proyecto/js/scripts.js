@@ -6,17 +6,32 @@ const ecomPrice = 3000;
 const mantPrice = 2400;
 
 // Variables del DOM
+const nameInput = document.querySelector('#name');
+const telInput = document.querySelector('#tel');
+const emailInput = document.querySelector('#email');
 const sectInput = document.querySelector('#sections');
 const blogInput = document.querySelector('#blog');
 const ecomInput = document.querySelector('#ecom');
 const mantInput = document.querySelector('#mant');
 const saveButton =document.querySelector('#saveBtn');
 const webHis = document.querySelector('#webHis');
+const choiceBlog = document.querySelector('#choiceb');
+const priceBlog = document.querySelector('#priceb');
+const choiceEcom = document.querySelector('#choicee');
+const priceEcom = document.querySelector('#pricee');
+const choiceMant = document.querySelector('#choicem');
+const priceMant = document.querySelector('#pricem');
+const unitSect = document.querySelector('#unitsect');
+const priceSect = document.querySelector('#prices');
+const price = document.querySelector('#price');
 
 document.addEventListener('DOMContentLoaded', function(){
     console.log('Cargo el DOM');
     calc();
     getWeb();
+    nameInput.addEventListener('change', calc);
+    telInput.addEventListener('change', calc);
+    emailInput.addEventListener('change', calc);
     sectInput.addEventListener('change', calc);
     blogInput.addEventListener('change', calc);
     ecomInput.addEventListener('change', calc);
@@ -31,6 +46,9 @@ function Web(data) {
     this.blog = data[1];
     this.ecom = data[2];
     this.mant = data[3];
+    this.fullName = data[4];
+    this.tel = data[5];
+    this.email = data[6];
     this.price = function (){
         let price = basePrice;
         if(this.calcSect()>0) {
@@ -65,6 +83,9 @@ function calc(){
     data[1] = blogInput.checked;
     data[2] = ecomInput.checked;
     data[3] = mantInput.checked;
+    data[4] = nameInput.value;
+    data[5] = telInput.value;
+    data[6] = emailInput.value;
 
     // Si no ingresan booleanos
     if(typeof data[1] !== "boolean"){
@@ -89,22 +110,30 @@ function calc(){
 
     // Muestro el precio final en el HTML
     if((typeof webCalc.price()) == 'number' ) {
-        let price = document.querySelector('#price');
-        if(webCalc.blog ===true){
-            document.querySelector('#choiceb').textContent = 'Si';
-            document.querySelector('#priceb').textContent = '$3000';
+        if(webCalc.blog === true){
+            choiceBlog.textContent = 'Si';
+            priceBlog.textContent = '$3000';
+        }else{
+            choiceBlog.textContent = 'No';
+            priceBlog.textContent = '$0';
         }
-        if(webCalc.ecom ===true){
-            document.querySelector('#choicee').textContent = 'Si';
-            document.querySelector('#pricee').textContent = '$3000';
+        if(webCalc.ecom === true){
+            choiceEcom.textContent = 'Si';
+            priceEcom.textContent = '$3000';
+        }else{
+            choiceEcom.textContent = 'No';
+            priceEcom.textContent = '$0';
         }
-        if(webCalc.mant ===true){
-            document.querySelector('#choicem').textContent = 'Si';
-            document.querySelector('#pricem').textContent = '$4500';
+        if(webCalc.mant === true){
+            choiceMant.textContent = 'Si';
+            priceMant.textContent = '$4500';
+        }else{
+            choiceMant.textContent = 'No';
+            priceMant.textContent = '$0';
         }
-        document.querySelector('#unitsect').textContent = webCalc.sect;
+        unitSect.textContent = webCalc.sect;
         let finalSec = webCalc.calcSect();
-        document.querySelector('#prices').textContent = '$' + finalSec;
+        priceSect.textContent = '$' + finalSec;
         price.textContent = '$' + webCalc.price();
         console.log('Costo total: $' + webCalc.price());
         sessionStorage.setItem('budget', JSON.stringify(webCalc));

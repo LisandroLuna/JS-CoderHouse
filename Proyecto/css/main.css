@@ -6,6 +6,10 @@ header{
     background: #ffe604;
     padding: 1rem 1rem 1rem 1rem;
 }
+header a:hover{
+    text-decoration: none;
+    color: black;
+}
 main{
     margin: 2rem 2rem 2rem 2rem;
 }
