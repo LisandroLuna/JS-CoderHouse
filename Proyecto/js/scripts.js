@@ -6,41 +6,42 @@ const ecomPrice = 3000;
 const mantPrice = 2400;
 
 // Constantes del DOM
-const form = document.querySelector('#form-simu');
-const nameInput = document.querySelector('#name');
-const telInput = document.querySelector('#tel');
-const emailInput = document.querySelector('#email');
-const sectInput = document.querySelector('#sections');
-const blogInput = document.querySelector('#blog');
-const ecomInput = document.querySelector('#ecom');
-const mantInput = document.querySelector('#mant');
-const saveButton = document.querySelector('#saveBtn');
-const webHis = document.querySelector('#webHis');
-const choiceBlog = document.querySelector('#choiceb');
-const priceBlog = document.querySelector('#priceb');
-const choiceEcom = document.querySelector('#choicee');
-const priceEcom = document.querySelector('#pricee');
-const choiceMant = document.querySelector('#choicem');
-const priceMant = document.querySelector('#pricem');
-const unitSect = document.querySelector('#unitsect');
-const priceSect = document.querySelector('#prices');
-const price = document.querySelector('#price');
+const form = $('#form-simu');
+const nameInput = $('#name');
+const telInput = $('#tel');
+const emailInput = $('#email');
+const sectInput = $('#sections');
+const blogInput = $('#blog');
+const ecomInput = $('#ecom');
+const mantInput = $('#mant');
+const saveButton = $('#saveBtn');
+const webHis = $('#webHis');
+const choiceBlog = $('#choiceb');
+const priceBlog = $('#priceb');
+const choiceEcom = $('#choicee');
+const priceEcom = $('#pricee');
+const choiceMant = $('#choicem');
+const priceMant = $('#pricem');
+const unitSect = $('#unitsect');
+const priceSect = $('#prices');
+const price = $('#price');
 
 // Espero la carga del DOM
-document.addEventListener('DOMContentLoaded', function(){
+$( document ).ready(function()
+{
     console.log('Cargo el DOM');
     calc();
     getWeb();
-    nameInput.addEventListener('change', calc);
-    telInput.addEventListener('change', calc);
-    emailInput.addEventListener('change', calc);
-    sectInput.addEventListener('change', calc);
-    blogInput.addEventListener('change', calc);
-    ecomInput.addEventListener('change', calc);
-    mantInput.addEventListener('change', calc);
-    saveButton.addEventListener('click', saveWeb);
-    saveButton.addEventListener('click', getWeb);
-    form.addEventListener('submit', (event) => {
+    nameInput.change(calc);
+    telInput.change(calc);
+    emailInput.change(calc);
+    sectInput.change(calc);
+    blogInput.change(calc);
+    ecomInput.change(calc);
+    mantInput.change(calc);
+    saveButton.click(saveWeb);
+    saveButton.click(getWeb);
+    form.submit(function( event ) {
         alert('Se envio informacion!');
     });
 });

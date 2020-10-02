@@ -11,17 +11,16 @@ function calc(){
     let data = [];
 
     // Tomo valores del formulario
-    data[0] = sectInput.value;
-    data[1] = blogInput.checked;
-    data[2] = ecomInput.checked;
-    data[3] = mantInput.checked;
-    data[4] = nameInput.value;
-    data[5] = telInput.value;
-    data[6] = emailInput.value;
+    data[0] = sectInput.val();
+    data[1] = blogInput.prop("checked");
+    data[2] = ecomInput.prop("checked");
+    data[3] = mantInput.prop("checked");
+    data[4] = nameInput.prop("value");
+    data[5] = telInput.prop("value");
+    data[6] = emailInput.prop("value");
     const format = " HH:mm - DD/MM/YY";
     let date = new Date();
-    let dateTime = moment(date).format(format);
-    data[7] = dateTime;
+    data[7] = moment(date).format(format);
     data[8] = Date.now();
 
     checkCalc(data);
@@ -32,17 +31,17 @@ function checkCalc(data){
     // Si no ingresan booleanos
     if(typeof data[1] !== "boolean"){
         alert('Error al seleccionar Blog, intente nuevamente!');
-        blogInput.setAttribute('value','false')
+        blogInput.prop('checked', false);
         console.warn('Error al seleccionar Blog, no ingreso booleano');
     }
     if(typeof data[2] !== "boolean"){
         alert('Error al seleccionar Tienda, intente nuevamente!');
-        ecomInput.setAttribute('value','false')
+        ecomInput.prop('checked', false);
         console.warn('Error al seleccionar Tienda, no ingreso booleano');
     }
     if(typeof data[3] !== "boolean"){
         alert('Error al seleccionar Mantenimiento, intente nuevamente!');
-        mantInput.setAttribute('value','false')
+        mantInput.prop('checked', false);
         console.warn('Error al seleccionar Mantenimiento, no ingreso booleano');
     }
 
@@ -53,30 +52,30 @@ function checkCalc(data){
     // Muestro el precio final en el HTML
     if((typeof webCalc.price()) == 'number' ) {
         if(webCalc.blog === true){
-            choiceBlog.textContent = 'Si';
-            priceBlog.textContent = '$3000';
+            choiceBlog.text('Si');
+            priceBlog.text('$3000');
         }else{
-            choiceBlog.textContent = 'No';
-            priceBlog.textContent = '$0';
+            choiceBlog.text('No');
+            priceBlog.text('$0');
         }
         if(webCalc.ecom === true){
-            choiceEcom.textContent = 'Si';
-            priceEcom.textContent = '$3000';
+            choiceEcom.text('Si');
+            priceEcom.text('$3000');
         }else{
-            choiceEcom.textContent = 'No';
-            priceEcom.textContent = '$0';
+            choiceEcom.text('No');
+            priceEcom.text('$0');
         }
         if(webCalc.mant === true){
-            choiceMant.textContent = 'Si';
-            priceMant.textContent = '$4500';
+            choiceMant.text('Si');
+            priceMant.text('$4500');
         }else{
-            choiceMant.textContent = 'No';
-            priceMant.textContent = '$0';
+            choiceMant.text('No');
+            priceMant.text('$0');
         }
-        unitSect.textContent = webCalc.sect;
+        unitSect.text(webCalc.sect);
         let finalSec = webCalc.calcSect();
-        priceSect.textContent = '$' + finalSec;
-        price.textContent = '$' + webCalc.price();
+        priceSect.text('$' + finalSec);
+        price.text('$' + webCalc.price());
         console.log('Costo total: $' + webCalc.price());
         sessionStorage.setItem('budget', JSON.stringify(webCalc));
     }else{
@@ -134,7 +133,7 @@ function saveWeb(){
 
 // Limpiar Historial de Cotizaciones en DOM
 function clearHis(){
-    webHis.innerHTML = '';
+    webHis.html('');
 }
 
 // De booleano a Si/No
@@ -148,7 +147,7 @@ function siNo(info){
 
 // De Si/No a booleano
 function trueFalse(info){
-    if(info == "Si"){
+    if(info === "Si"){
         return true
     }else{
         return false;
@@ -167,11 +166,10 @@ function getWeb(){
         let data = [web.sect, web.blog, web.ecom, web.mant, web.fullName, web.tel, web.email, web.date, web.select];
         temp.push(new Web(data));
     })
-    let i = 4;
+    let i = 1;
     temp.forEach(e => {
-        let article = document.createElement("article");
-        article.innerHTML =
-            '<article class="p-2 mb-1" id="' + e.select + '">' +
+        let article = $("<article></article>");
+        article.html('<div class="p-2 mb-1" id="' + e.select + '">' +
             '<p class="font-weight-bold">Cotización: ' + e.date +
             '</p><ul>' +
             '<li id="bud-fullName">Nombre: ' + noData(e.fullName) + '</li>' +
@@ -184,11 +182,11 @@ function getWeb(){
             '<li id="bud-price">Precio Final: $' + e.price() + '</li>' +
             '</ul>' +
             '<a id="loadBtn-' + e.fullName +'" class="btn btn-info ml-4 w-100">Cargar</a>' +
-            '</article>';
-        webHis.insertBefore(article, webHis.firstChild);
+            '</div>');
+        webHis.prepend(article);
         i--;
-        var loadButton = document.querySelector('#loadBtn-' + e.fullName);
-        loadButton.addEventListener('click', loadBud);
+        var loadButton = $('#loadBtn-' + e.fullName);
+        loadButton.click(loadBud);
     })
 }
 
@@ -207,13 +205,13 @@ function loadBud(){
     let info = JSON.parse(getStorage(art));
     data = [info.sect, info.blog, info.ecom, info.mant, info.fullName, info.tel, info.email, info.date, info.select];
     console.log(data);
-    sectInput.value = data[0];
-    document.querySelector('#amount').textContent = sectInput.value;
-    blogInput.checked = data[1];
-    ecomInput.checked = data[2];
-    mantInput.checked = data[3];
-    nameInput.value = data[4];
-    telInput.value = data[5];
-    emailInput.value = data[6];
+    sectInput.val(data[0]);
+    $('#amount').text(sectInput.val());
+    blogInput.prop("checked", data[1]);
+    ecomInput.prop("checked", data[2]);
+    mantInput.prop("checked", data[3]);
+    nameInput.val(data[4]);
+    telInput.val(data[5]);
+    emailInput.val(data[6]);
     checkCalc(data);
 }
